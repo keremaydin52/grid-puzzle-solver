@@ -1,15 +1,19 @@
 # Grid Puzzle Solver
-This app is made to create a grid and fill the grid with two different values randomly. For the demonstration, numbers 0 and 1 is used. After creating the grid, cells will be filled with -1. When the solve button is pushed, grid cells will be filled with 0 and 1 randomly. But different game objects, sprites or texts can be used.
+
+This app allows you to create a grid and fill it with two different values at random. For demonstration purposes, the numbers **0** and **1** are used. Once the grid is created, all cells start with a value of **-1**. When you press the **Solve** button, the grid will be filled with a random combination of 0s and 1s that obey the puzzle rules. You can also use other game objects, sprites, or text instead of numbers.
 
 ## Rules
-1. Row and column counts should be even. Otherwise you will not be able to create a grid. They don't to be the same value. They can be different.
-2. There should be no more than 2 consecutive same values in a row or count. Diagonals are not a concern.
-3. Count of a value should be equal to the count of the other value in a row or column. For example; if the row length is 6, the total number of 0's and 1's both should be equal to 3 in the same row.
 
-## Solution method
-This app is using Backtracking method to solve the problem. It's trying a random value in every cell and checking if it's good to go. If there would be a problem, it would go one step back and try another value. You can find the method in GameManager script and check the comments.
+1. **Both row and column counts must be even.** You won't be able to generate a grid otherwise. The row and column values can be different from each other, but they both must be even numbers.
+2. **No more than two consecutive identical values** are allowed in any row or column (e.g., `0 0 0` or `1 1 1` is invalid). Diagonal sequences are not checked.
+3. **Each row and each column must contain an equal number of 0s and 1s.** For example, in a row of 6 cells, there must be exactly three 0s and three 1s.
 
-## Usage
-Enter the number of rows and columns you want to input fields. Then push the create button to generate a grid. The create button will not be interactable if the inputs are not valid. You can change the input values and push create button to create a new one.
-<br/><br/>
-Push the solve button to solve the puzzle. When you press again, it will create another solution. It will not be available if there's no valid grid in the screen.
+## Solution Method
+
+The app uses a **backtracking algorithm** to solve the puzzle. It tries assigning random values to each cell while checking the rules. If a conflict is found, it backtracks (reverts) to a previous step and tries a different value. You can review this method in the `GameManager` script—comments are provided for clarity.
+
+## How to Use
+
+1. Enter even numbers for the number of rows and columns in the input fields.
+2. Click the **Create** button to generate a grid. The button will only be enabled if your inputs are valid. You can change the input values anytime and press Create again to generate a new grid.
+3. Click the **Solve** button to find a valid solution. Pressing it again will generate a different valid solution. The Solve button will only be active if a valid grid has been created.
